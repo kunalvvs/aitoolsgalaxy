@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +90,27 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-galaxy-background text-galaxy-text;
   }
+}
+
+.tool-card {
+  @apply bg-galaxy-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-galaxy-primary/20 border border-transparent hover:border-galaxy-primary/50;
+}
+
+.category-section {
+  @apply relative mb-12 pt-8;
+}
+
+.category-section::before {
+  content: "";
+  @apply absolute -left-2 top-0 h-full w-[2px] bg-gradient-to-b from-galaxy-primary to-transparent;
+}
+
+.galaxy-gradient {
+  @apply bg-gradient-to-br from-galaxy-background via-galaxy-card to-galaxy-background;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
 }
