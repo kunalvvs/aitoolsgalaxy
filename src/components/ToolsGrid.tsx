@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ToolCard, { ToolData } from './ToolCard';
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -12,6 +12,19 @@ interface ToolsGridProps {
 }
 
 const ToolsGrid = ({ tools, filteredCategory, searchQuery, isLoading = false }: ToolsGridProps) => {
+  const [animateIn, setAnimateIn] = useState(false);
+
+  useEffect(() => {
+    // Reset animation state when filters change
+    setAnimateIn(false);
+    
+    const timer = setTimeout(() => {
+      setAnimateIn(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [filteredCategory, searchQuery]);
+
   // Filter tools based on category and search query
   const filteredTools = tools.filter(tool => {
     const matchesCategory = filteredCategory === null || tool.category === filteredCategory;
@@ -35,7 +48,7 @@ const ToolsGrid = ({ tools, filteredCategory, searchQuery, isLoading = false }: 
 
   if (isLoading) {
     return (
-      <div className="space-y-12">
+      <div className="space-y-12 fade-in">
         {Array.from({ length: 3 }).map((_, categoryIndex) => (
           <div key={categoryIndex} className="category-section">
             <Skeleton className="h-8 w-40 mb-6" />
@@ -58,9 +71,9 @@ const ToolsGrid = ({ tools, filteredCategory, searchQuery, isLoading = false }: 
 
   if (filteredTools.length === 0) {
     return (
-      <Card className="p-8 text-center bg-galaxy-card">
-        <h3 className="text-lg font-medium mb-2">No tools found</h3>
-        <p className="text-galaxy-text/70">
+      <Card className="p-8 text-center bg-galaxy-card scale-in">
+        <h3 className="text-lg font-medium mb-2 text-high-contrast">No tools found</h3>
+        <p className="text-medium-contrast">
           Try changing your search query or filter selection.
         </p>
       </Card>
@@ -70,12 +83,12 @@ const ToolsGrid = ({ tools, filteredCategory, searchQuery, isLoading = false }: 
   return (
     <div className="space-y-12">
       {Object.entries(toolsByCategory).map(([category, categoryTools]) => (
-        <div key={category} className="category-section">
+        <div key={category} className={`category-section ${animateIn ? 'fade-in' : ''}`} style={{animationDelay: '100ms'}}>
           <h2 className="text-2xl font-bold mb-6 text-glow text-galaxy-primary">{category}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {categoryTools.map(tool => (
-              <div key={tool.id} className="animate-float" style={{animationDelay: `${Math.random() * 2}s`}}>
-                <ToolCard tool={tool} />
+            {categoryTools.map((tool, index) => (
+              <div key={tool.id}>
+                <ToolCard tool={tool} index={index} />
               </div>
             ))}
           </div>

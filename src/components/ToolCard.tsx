@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export interface ToolData {
   id: string;
@@ -19,11 +20,25 @@ export interface ToolData {
 
 interface ToolCardProps {
   tool: ToolData;
+  index?: number;
 }
 
-const ToolCard = ({ tool }: ToolCardProps) => {
+const ToolCard = ({ tool, index = 0 }: ToolCardProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, index * 100); // Staggered effect based on index
+    
+    return () => clearTimeout(timeout);
+  }, [index]);
+
   return (
-    <Card className={`tool-card h-full flex flex-col ${tool.featured ? 'border-galaxy-accent border-opacity-50 shadow-md shadow-galaxy-accent/20' : ''}`}>
+    <Card 
+      className={`tool-card h-full flex flex-col card-hover-effect staggered-item ${isVisible ? 'staggered-item-visible' : ''} 
+      ${tool.featured ? 'border-galaxy-accent border-opacity-50 shadow-md shadow-galaxy-accent/20' : ''}`}
+    >
       {tool.featured && (
         <Badge className="absolute -top-2 -right-2 bg-galaxy-accent text-white">
           Featured
@@ -52,15 +67,15 @@ const ToolCard = ({ tool }: ToolCardProps) => {
           )}
         </div>
         
-        <h3 className="font-semibold text-lg mb-2 text-galaxy-text">{tool.name}</h3>
-        <p className="text-sm text-galaxy-text/70 mb-4 line-clamp-3">{tool.description}</p>
+        <h3 className="font-semibold text-lg mb-2 text-high-contrast">{tool.name}</h3>
+        <p className="text-sm text-medium-contrast mb-4 line-clamp-3">{tool.description}</p>
         
         <div className="mb-3">
-          <Badge className="bg-galaxy-primary/20 text-galaxy-primary hover:bg-galaxy-primary/30">
+          <Badge className="bg-galaxy-primary/30 text-white hover:bg-galaxy-primary/40">
             {tool.category}
           </Badge>
           {tool.pricing && (
-            <Badge className="ml-2 bg-galaxy-secondary/20 text-galaxy-secondary hover:bg-galaxy-secondary/30">
+            <Badge className="ml-2 bg-galaxy-secondary/30 text-white hover:bg-galaxy-secondary/40">
               {tool.pricing}
             </Badge>
           )}
@@ -72,7 +87,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
           <TooltipProvider key={tag}>
             <Tooltip>
               <TooltipTrigger>
-                <span className="inline-block px-2 py-1 text-xs rounded-full bg-galaxy-card/60 text-galaxy-text/70">
+                <span className="inline-block px-2 py-1 text-xs rounded-full bg-galaxy-card/80 text-gray-300">
                   #{tag}
                 </span>
               </TooltipTrigger>
@@ -84,7 +99,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <span className="inline-block px-2 py-1 text-xs rounded-full bg-galaxy-card/60 text-galaxy-text/70">
+                <span className="inline-block px-2 py-1 text-xs rounded-full bg-galaxy-card/80 text-gray-300">
                   +{tool.tags.length - 3}
                 </span>
               </TooltipTrigger>
@@ -95,7 +110,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
       </div>
       
       <Button 
-        className="mt-auto bg-galaxy-primary hover:bg-galaxy-primary/80 text-white w-full flex items-center gap-2"
+        className="mt-auto bg-galaxy-primary hover:bg-galaxy-primary/80 text-white w-full flex items-center gap-2 transition-all duration-300 hover:shadow-md hover:shadow-galaxy-primary/20"
         onClick={() => window.open(tool.url, "_blank", "noopener,noreferrer")}
       >
         Explore Tool <ExternalLink size={14} />

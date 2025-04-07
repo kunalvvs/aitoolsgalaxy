@@ -114,3 +114,43 @@
 .text-glow {
   text-shadow: 0 0 10px currentColor;
 }
+
+/* Enhanced UI animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+.staggered-item {
+  opacity: 0;
+}
+
+.staggered-item-visible {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Improved text contrast */
+.text-high-contrast {
+  @apply text-white font-medium;
+}
+
+.text-medium-contrast {
+  @apply text-gray-200;
+}
+
+.card-hover-effect {
+  @apply transition-all duration-300 hover:-translate-y-1;
+}
