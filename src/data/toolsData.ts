@@ -1,4 +1,3 @@
-
 import { ToolData } from '../components/ToolCard';
 
 const toolsData: ToolData[] = [
@@ -306,6 +305,609 @@ const toolsData: ToolData[] = [
     url: "https://murf.ai",
     pricing: "Freemium",
     tags: ["voice", "speech", "voiceover"]
+  },
+  {
+    id: "31",
+    name: "Kapwing",
+    description: "Online video editor for creating, editing, and collaborating on videos, with AI-powered features.",
+    category: "Video Generation",
+    imageUrl: "https://www.kapwing.com/resources/content/images/2023/08/Frame-92013-1.png",
+    url: "https://www.kapwing.com",
+    pricing: "Freemium",
+    tags: ["video editing", "collaboration", "content creation"]
+  },
+  {
+    id: "32",
+    name: "Veed.io",
+    description: "Online video editor with AI tools for subtitles, transcription, and enhancing video content.",
+    category: "Video Generation",
+    imageUrl: "https://www.veed.io/static/media/logo-white.e8a4839d.svg",
+    url: "https://www.veed.io",
+    pricing: "Freemium",
+    tags: ["video editing", "subtitles", "transcription"]
+  },
+  {
+    id: "33",
+    name: "Media.io",
+    description: "Online multimedia platform with AI-powered tools for video, audio, and image editing.",
+    category: "Video Generation",
+    imageUrl: "https://www.media.io/imagesV4/logo/media-io-logo.svg",
+    url: "https://www.media.io",
+    pricing: "Freemium",
+    tags: ["video editing", "audio editing", "converter"]
+  },
+  {
+    id: "34",
+    name: "Unscreen",
+    description: "AI-powered tool to remove video backgrounds automatically without a green screen.",
+    category: "Video Generation",
+    imageUrl: "https://static.unscreen.com/images/logo.svg",
+    url: "https://www.unscreen.com",
+    pricing: "Freemium",
+    tags: ["background removal", "video editing", "transparency"]
+  },
+  {
+    id: "35",
+    name: "InVideo",
+    description: "Online video creation platform with templates and AI-powered features for marketing videos.",
+    category: "Video Generation",
+    imageUrl: "https://assets-global.website-files.com/5f66a9b93ffe9e4bfa4d1d13/5f6a71183edbcb7e2b59df0b_invideo-light-logo.svg",
+    url: "https://invideo.io",
+    pricing: "Freemium",
+    tags: ["video creation", "templates", "marketing"]
+  },
+  {
+    id: "36",
+    name: "Keevi",
+    description: "AI video editor for creating professional videos from text, presentations, and transcripts.",
+    category: "Video Generation",
+    imageUrl: "https://keevi.io/wp-content/uploads/2023/06/keevi-logo.svg",
+    url: "https://keevi.io",
+    pricing: "Paid",
+    tags: ["video creation", "presentations", "text-to-video"]
+  },
+  {
+    id: "37",
+    name: "HeyGen",
+    description: "AI video generation platform for creating professional videos with digital avatars.",
+    category: "Video Generation",
+    imageUrl: "https://assets-global.website-files.com/627bec733c6bb48a31be1f3e/6282f678fe4cf54e724ea343_HeyGen.svg",
+    url: "https://www.heygen.com",
+    pricing: "Paid",
+    tags: ["avatars", "AI video", "digital humans"],
+    featured: true
+  },
+  {
+    id: "38",
+    name: "Virbo",
+    description: "AI-powered video language translator that changes the language in videos while preserving the original voice.",
+    category: "Video Generation",
+    imageUrl: "https://www.virbo.ai/logos/virbo-logo-light-beta.svg",
+    url: "https://www.virbo.ai",
+    pricing: "Paid",
+    tags: ["language translation", "video dubbing", "localization"]
+  },
+  {
+    id: "39",
+    name: "Vizard",
+    description: "AI-powered reel generator that creates engaging social media videos from your content.",
+    category: "Video Generation",
+    imageUrl: "https://vizard.ai/wp-content/uploads/2023/04/vizard-logo-1.svg",
+    url: "https://vizard.ai",
+    pricing: "Paid",
+    tags: ["social media", "reels", "content creation"]
+  },
+  {
+    id: "40",
+    name: "Cutout.Pro",
+    description: "AI-powered design platform with image and video editing tools including background removal.",
+    category: "Image Generation",
+    imageUrl: "https://www.cutout.pro/static/media/logo.88ce94ab.svg",
+    url: "https://www.cutout.pro",
+    pricing: "Freemium",
+    tags: ["background removal", "design", "image editing"]
+  },
+  {
+    id: "41",
+    name: "Depositphotos",
+    description: "Stock photo marketplace with AI search and editing tools for finding and customizing images.",
+    category: "Image Generation",
+    imageUrl: "https://static.depositphotos.com/storage/2022/08/Depositphotos-horizontal-color.svg",
+    url: "https://depositphotos.com",
+    pricing: "Paid",
+    tags: ["stock photos", "images", "vectors"]
+  },
+  {
+    id: "42",
+    name: "Freepik",
+    description: "Platform offering free vectors, stock photos, and PSD files with AI-powered search.",
+    category: "Image Generation",
+    imageUrl: "https://freepik.cdnpk.net/img/logos/freepik-logo.svg",
+    url: "https://www.freepik.com",
+    pricing: "Freemium",
+    tags: ["vectors", "stock photos", "design resources"]
+  },
+  {
+    id: "43",
+    name: "Cleanup.pictures",
+    description: "Free tool to remove unwanted objects, people, text, and defects from your images.",
+    category: "Image Generation",
+    imageUrl: "https://cleanup.pictures/images/logo.svg",
+    url: "https://cleanup.pictures",
+    pricing: "Freemium",
+    tags: ["object removal", "image editing", "retouching"]
+  },
+  {
+    id: "44",
+    name: "Photopea",
+    description: "Advanced online photo editor with AI features, similar to Adobe Photoshop.",
+    category: "Image Generation",
+    imageUrl: "https://www.photopea.com/promo/icon512.png",
+    url: "https://www.photopea.com",
+    pricing: "Freemium",
+    tags: ["photo editing", "design", "photoshop alternative"]
+  },
+  {
+    id: "45",
+    name: "Wonder Dynamics",
+    description: "Professional AI-powered graphics tool for creating high-quality visual effects.",
+    category: "Image Generation",
+    imageUrl: "https://wonderdynamics.com/images/wonder-logo.svg",
+    url: "https://wonderdynamics.com",
+    pricing: "Enterprise",
+    tags: ["visual effects", "3D animation", "professional tools"]
+  },
+  {
+    id: "46",
+    name: "Watermark Remover",
+    description: "AI-powered tool to remove watermarks from images while preserving quality.",
+    category: "Image Generation",
+    imageUrl: "https://www.watermarkremover.io/static/images/logo.webp",
+    url: "https://www.watermarkremover.io",
+    pricing: "Freemium",
+    tags: ["watermark removal", "image cleaning", "restoration"]
+  },
+  {
+    id: "47",
+    name: "Let's Enhance",
+    description: "AI image upscaler that increases resolution without quality loss.",
+    category: "Image Generation",
+    imageUrl: "https://letsenhance.io/static/icons/logo.svg",
+    url: "https://letsenhance.io",
+    pricing: "Freemium",
+    tags: ["image enhancement", "upscaling", "resolution"]
+  },
+  {
+    id: "48",
+    name: "TensorPix",
+    description: "AI tool for video upscaling and enhancing video quality using machine learning.",
+    category: "Video Generation",
+    imageUrl: "https://ui-avatars.com/api/?name=TensorPix&background=8B5CF6&color=fff",
+    url: "https://tensorpix.ai",
+    pricing: "Paid",
+    tags: ["video enhancement", "upscaling", "AI processing"]
+  },
+  {
+    id: "49",
+    name: "Hotpot.ai",
+    description: "AI tool for colorizing black and white images and enhancing photos.",
+    category: "Image Generation",
+    imageUrl: "https://hotpot.ai/images/site/hotpot-logo.svg",
+    url: "https://hotpot.ai",
+    pricing: "Freemium",
+    tags: ["colorization", "image enhancement", "AI design"]
+  },
+  {
+    id: "50",
+    name: "Dictation.io",
+    description: "Free online speech recognition tool that converts speech to text in real-time.",
+    category: "Audio Tools",
+    imageUrl: "https://dictation.io/img/logo.svg",
+    url: "https://dictation.io",
+    pricing: "Free",
+    tags: ["speech-to-text", "transcription", "dictation"]
+  },
+  {
+    id: "51",
+    name: "Suno.ai",
+    description: "AI music generation platform that creates original songs from text prompts.",
+    category: "Audio Tools",
+    imageUrl: "https://images.ctfassets.net/1e9i8wzmj0dx/6zTKD2bYzzAtGoQFdR5KbZ/b26b16ca035416ba404e8003d7940e6c/Suno-Logo.svg",
+    url: "https://suno.ai",
+    pricing: "Freemium",
+    tags: ["music generation", "lyrics", "AI music"]
+  },
+  {
+    id: "52",
+    name: "Paper Cups",
+    description: "AI tool for changing languages in videos while preserving the speaker's voice.",
+    category: "Audio Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=Paper+Cups&background=8B5CF6&color=fff",
+    url: "https://papercups.ai",
+    pricing: "Paid",
+    tags: ["language translation", "voice preservation", "video localization"]
+  },
+  {
+    id: "53",
+    name: "Podwise",
+    description: "AI platform that generates summaries of podcasts to save listening time.",
+    category: "Audio Tools",
+    imageUrl: "https://podwise.xyz/logo.svg",
+    url: "https://podwise.xyz",
+    pricing: "Freemium",
+    tags: ["podcast summaries", "audio summaries", "time-saving"]
+  },
+  {
+    id: "54",
+    name: "Bubble",
+    description: "Visual programming platform for building web applications without coding.",
+    category: "Development Tools",
+    imageUrl: "https://assets-global.website-files.com/6047a9e35e5dc54ac86ddd90/63e679e9ded3a9113e9c7c5e_bubble-logo.svg",
+    url: "https://bubble.io",
+    pricing: "Freemium",
+    tags: ["no-code", "app builder", "web development"],
+    featured: true
+  },
+  {
+    id: "55",
+    name: "AppGyver",
+    description: "No-code platform for building responsive web and mobile applications.",
+    category: "Development Tools",
+    imageUrl: "https://www.appgyver.com/hs-fs/hubfs/img/appgyver/logo-white.svg",
+    url: "https://www.appgyver.com",
+    pricing: "Freemium",
+    tags: ["no-code", "app development", "responsive design"]
+  },
+  {
+    id: "56",
+    name: "Adalo",
+    description: "No-code platform for building mobile apps and web applications.",
+    category: "Development Tools",
+    imageUrl: "https://assets-global.website-files.com/5d55f1425cb6b7a18b39a0b5/5f5a63f93bae141b8c5411a5_adalo-logo-color.svg",
+    url: "https://www.adalo.com",
+    pricing: "Freemium",
+    tags: ["mobile apps", "no-code", "prototyping"]
+  },
+  {
+    id: "57",
+    name: "Draftbit",
+    description: "Visual app building platform with React Native components and export options.",
+    category: "Development Tools",
+    imageUrl: "https://assets.draftbit.com/logos/logo-with-text-dark.svg",
+    url: "https://draftbit.com",
+    pricing: "Paid",
+    tags: ["React Native", "mobile development", "visual builder"]
+  },
+  {
+    id: "58",
+    name: "FlutterFlow",
+    description: "Visual development platform for building native mobile apps with Flutter.",
+    category: "Development Tools",
+    imageUrl: "https://assets-global.website-files.com/5f4f91ff0107a91fddbcd5a5/619a81557dd04f7b069da1cc_FF_Logo.svg",
+    url: "https://flutterflow.io",
+    pricing: "Paid",
+    tags: ["Flutter", "mobile development", "visual editor"]
+  },
+  {
+    id: "59",
+    name: "Teleport HQ",
+    description: "AI-powered platform for creating website templates and generating code.",
+    category: "Development Tools",
+    imageUrl: "https://teleporthq.io/static/teleporthq-logo-reversed-aa29e1a0e7abcc5ca7ac7b40e09fdd98.svg",
+    url: "https://teleporthq.io",
+    pricing: "Freemium",
+    tags: ["website templates", "code generation", "prototyping"]
+  },
+  {
+    id: "60",
+    name: "Sketch to Code",
+    description: "AI tool that converts hand-drawn sketches into functional HTML code.",
+    category: "Development Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=Sketch+to+Code&background=8B5CF6&color=fff",
+    url: "https://sketch2code.azurewebsites.net",
+    pricing: "Free",
+    tags: ["sketch conversion", "prototyping", "HTML generation"]
+  },
+  {
+    id: "61",
+    name: "Zyro",
+    description: "AI-powered website builder with templates and business tools.",
+    category: "Development Tools",
+    imageUrl: "https://zyro.com/_nuxt/img/zyro-logo.d9786b1.svg",
+    url: "https://zyro.com",
+    pricing: "Paid",
+    tags: ["website builder", "templates", "business tools"]
+  },
+  {
+    id: "62",
+    name: "Locofy",
+    description: "Tool that converts designs from Figma and Adobe XD to production-ready code.",
+    category: "Development Tools",
+    imageUrl: "https://www.locofy.ai/assets/logoSVG.svg",
+    url: "https://www.locofy.ai",
+    pricing: "Freemium",
+    tags: ["design to code", "Figma", "frontend development"]
+  },
+  {
+    id: "63",
+    name: "Uncover.ai",
+    description: "AI-powered research tool that helps uncover insights from data and documents.",
+    category: "Research Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=Uncover&background=8B5CF6&color=fff",
+    url: "https://uncover.ai",
+    pricing: "Paid",
+    tags: ["research", "data insights", "document analysis"]
+  },
+  {
+    id: "64",
+    name: "Tickertape",
+    description: "Financial research platform with AI-powered stock analysis and portfolio tools.",
+    category: "Research Tools",
+    imageUrl: "https://tickertape.in/images/logos/tickertape-logo.svg",
+    url: "https://tickertape.in",
+    pricing: "Freemium",
+    tags: ["finance", "stocks", "investment research"]
+  },
+  {
+    id: "65",
+    name: "Wormhole",
+    description: "Simple, private file sharing service with end-to-end encryption.",
+    category: "Productivity Tools",
+    imageUrl: "https://wormhole.app/wormhole-gradient.svg",
+    url: "https://wormhole.app",
+    pricing: "Free",
+    tags: ["file transfer", "secure sharing", "encryption"]
+  },
+  {
+    id: "66",
+    name: "Temp Mail",
+    description: "Temporary email service for protecting your privacy online.",
+    category: "Productivity Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=Temp+Mail&background=8B5CF6&color=fff",
+    url: "https://temp-mail.org",
+    pricing: "Free",
+    tags: ["temporary email", "privacy", "online protection"]
+  },
+  {
+    id: "67",
+    name: "FileHippo",
+    description: "Software download platform with reviews and safe download links.",
+    category: "Productivity Tools",
+    imageUrl: "https://static.filehippo.net/assets/images/filehippo-logo.svg",
+    url: "https://filehippo.com",
+    pricing: "Free",
+    tags: ["software downloads", "applications", "utilities"]
+  },
+  {
+    id: "68",
+    name: "Speedwrite",
+    description: "AI writing tool that rephrases content to create original text quickly.",
+    category: "Text Generation",
+    imageUrl: "https://www.speedwrite.com/assets/logo.svg",
+    url: "https://speedwrite.com",
+    pricing: "Freemium",
+    tags: ["content rewriting", "paraphrasing", "AI writing"]
+  },
+  {
+    id: "69",
+    name: "Level.fyi",
+    description: "Platform for comparing compensation packages across tech companies.",
+    category: "Research Tools",
+    imageUrl: "https://www.levels.fyi/img/favicon.png",
+    url: "https://www.levels.fyi",
+    pricing: "Freemium",
+    tags: ["salary comparison", "compensation", "career growth"]
+  },
+  {
+    id: "70",
+    name: "Axiom.ai",
+    description: "Browser automation platform for creating bots without coding.",
+    category: "Productivity Tools",
+    imageUrl: "https://axiom.ai/images/logo-full.svg",
+    url: "https://axiom.ai",
+    pricing: "Paid",
+    tags: ["automation", "bots", "workflow"]
+  },
+  {
+    id: "71",
+    name: "Wolfram Alpha",
+    description: "Computational knowledge engine that answers factual queries directly.",
+    category: "Research Tools",
+    imageUrl: "https://www.wolframalpha.com/images/spikey.svg",
+    url: "https://www.wolframalpha.com",
+    pricing: "Freemium",
+    tags: ["knowledge engine", "computation", "problem-solving"],
+    featured: true
+  },
+  {
+    id: "72",
+    name: "Toffee Share",
+    description: "Fast and secure file sharing platform with no registration required.",
+    category: "Productivity Tools",
+    imageUrl: "https://toffeeshare.com/images/logo.svg",
+    url: "https://toffeeshare.com",
+    pricing: "Free",
+    tags: ["file sharing", "peer-to-peer", "secure"]
+  },
+  {
+    id: "73",
+    name: "Archive.ph",
+    description: "Web archive service for preserving and accessing online content without paywalls.",
+    category: "Research Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=Archive&background=8B5CF6&color=fff",
+    url: "https://archive.ph",
+    pricing: "Free",
+    tags: ["web archive", "article access", "paywall bypass"]
+  },
+  {
+    id: "74",
+    name: "Omni Calculator",
+    description: "Platform with hundreds of specialized calculators for various fields.",
+    category: "Productivity Tools",
+    imageUrl: "https://www.omnicalculator.com/files/navLogoPurple.svg",
+    url: "https://www.omnicalculator.com",
+    pricing: "Free",
+    tags: ["calculators", "problem-solving", "utilities"]
+  },
+  {
+    id: "75",
+    name: "SMS24.me",
+    description: "Free service for receiving SMS messages online for verification purposes.",
+    category: "Productivity Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=SMS24&background=8B5CF6&color=fff",
+    url: "https://sms24.me",
+    pricing: "Free",
+    tags: ["SMS receiving", "verification", "privacy"]
+  },
+  {
+    id: "76",
+    name: "Ninite",
+    description: "Tool for installing and updating multiple software programs at once.",
+    category: "Productivity Tools",
+    imageUrl: "https://ninite.com/static/logo.svg",
+    url: "https://ninite.com",
+    pricing: "Freemium",
+    tags: ["software installation", "updater", "bulk install"]
+  },
+  {
+    id: "77",
+    name: "Jenni AI",
+    description: "AI writing assistant that helps create long-form content and academic papers.",
+    category: "Text Generation",
+    imageUrl: "https://www.jenni.ai/images/logo.svg",
+    url: "https://jenni.ai",
+    pricing: "Paid",
+    tags: ["academic writing", "essays", "research papers"]
+  },
+  {
+    id: "78",
+    name: "QuillBot",
+    description: "AI-powered paraphrasing tool that helps rewrite and enhance text.",
+    category: "Text Generation",
+    imageUrl: "https://assets.quillbot.com/images/quillbot-logo.svg",
+    url: "https://quillbot.com",
+    pricing: "Freemium",
+    tags: ["paraphrasing", "grammar", "writing enhancement"]
+  },
+  {
+    id: "79",
+    name: "Loom",
+    description: "Video messaging tool for quick, asynchronous communication with screen recording.",
+    category: "Productivity Tools",
+    imageUrl: "https://cdn.loom.com/assets/marketing-pages/default-icons/loom-logo.svg",
+    url: "https://www.loom.com",
+    pricing: "Freemium",
+    tags: ["screen recording", "video messaging", "collaboration"]
+  },
+  {
+    id: "80",
+    name: "Convertio",
+    description: "Online file converter that supports over 300 different file formats.",
+    category: "Productivity Tools",
+    imageUrl: "https://static.convertio.co/images/logo.svg",
+    url: "https://convertio.co",
+    pricing: "Freemium",
+    tags: ["file conversion", "format change", "media converter"]
+  },
+  {
+    id: "81",
+    name: "Pexels",
+    description: "Free stock photo and video platform with high-quality content.",
+    category: "Image Generation",
+    imageUrl: "https://www.pexels.com/assets/logos/pexels-logo-7e4af4630e66b6b786567041874586aeb1b5217589035c70a0def15aacd0f11a.svg",
+    url: "https://www.pexels.com",
+    pricing: "Free",
+    tags: ["stock photos", "stock videos", "free images"]
+  },
+  {
+    id: "82",
+    name: "QR Code AI",
+    description: "AI-powered QR code generator with customization and tracking features.",
+    category: "Productivity Tools",
+    imageUrl: "https://ui-avatars.com/api/?name=QR+Code+AI&background=8B5CF6&color=fff",
+    url: "https://qrcode.ai",
+    pricing: "Freemium",
+    tags: ["QR codes", "tracking", "marketing"]
+  },
+  {
+    id: "83",
+    name: "MyWebar",
+    description: "AR QR code generator platform for creating augmented reality experiences.",
+    category: "Productivity Tools",
+    imageUrl: "https://mywebar.com/static/images/logo-light.svg",
+    url: "https://mywebar.com",
+    pricing: "Freemium",
+    tags: ["augmented reality", "QR codes", "interactive"]
+  },
+  {
+    id: "84",
+    name: "Prankify",
+    description: "AI-powered prank generator for creating funny and harmless jokes.",
+    category: "Entertainment",
+    imageUrl: "https://www.prankify.lol/assets/images/logo.png",
+    url: "https://www.prankify.lol",
+    pricing: "Free",
+    tags: ["pranks", "entertainment", "jokes"]
+  },
+  {
+    id: "85",
+    name: "PDF Drive",
+    description: "Search engine for PDF files with millions of free eBooks available.",
+    category: "Research Tools",
+    imageUrl: "https://www.pdfdrive.com/assets/img/logo.png",
+    url: "https://www.pdfdrive.com",
+    pricing: "Free",
+    tags: ["PDF search", "ebooks", "document search"]
+  },
+  {
+    id: "86",
+    name: "Sejda",
+    description: "Online PDF editor and converter with various document manipulation tools.",
+    category: "Productivity Tools",
+    imageUrl: "https://www.sejda.com/resources/images/sejda-logo.svg",
+    url: "https://www.sejda.com",
+    pricing: "Freemium",
+    tags: ["PDF editor", "document processing", "PDF tools"]
+  },
+  {
+    id: "87",
+    name: "Backblaze",
+    description: "Cloud backup service for unlimited computer backup and data storage.",
+    category: "Productivity Tools",
+    imageUrl: "https://www.backblaze.com/blog/wp-content/uploads/2017/12/backblaze_logo_2017_plain.png",
+    url: "https://www.backblaze.com",
+    pricing: "Paid",
+    tags: ["cloud backup", "data storage", "disaster recovery"]
+  },
+  {
+    id: "88",
+    name: "GoLogin",
+    description: "Browser profile management tool for handling multiple social accounts.",
+    category: "Productivity Tools",
+    imageUrl: "https://gologin.com/img/logo.svg",
+    url: "https://gologin.com",
+    pricing: "Paid",
+    tags: ["browser profiles", "account management", "privacy"]
+  },
+  {
+    id: "89",
+    name: "ScamAdviser",
+    description: "Website trust checker to verify if sites are legitimate or potentially fraudulent.",
+    category: "Research Tools",
+    imageUrl: "https://www.scamadviser.com/static/images/scamadviser-logo.svg",
+    url: "https://www.scamadviser.com",
+    pricing: "Freemium",
+    tags: ["scam detection", "website trust", "security"]
+  },
+  {
+    id: "90",
+    name: "Merlio",
+    description: "AI-powered platform for creating and managing marketing campaigns.",
+    category: "Marketing Tools",
+    imageUrl: "https://merlio.app/wp-content/uploads/2023/03/merlio-favicon.svg",
+    url: "https://merlio.app",
+    pricing: "Paid",
+    tags: ["marketing", "campaigns", "automation"]
   }
 ];
 
