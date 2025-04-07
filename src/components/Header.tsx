@@ -1,7 +1,8 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   onSearch: (query: string) => void;
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header = ({ onSearch }: HeaderProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
@@ -16,8 +18,27 @@ const Header = ({ onSearch }: HeaderProps) => {
     onSearch(query);
   };
 
+  const clearSearch = () => {
+    setSearchQuery('');
+    onSearch('');
+  };
+
+  // Add scroll event listener for header effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="relative z-10 py-6 mb-6">
+    <header className={`sticky top-0 z-20 py-6 mb-6 transition-all duration-300 ${isScrolled ? 'backdrop-blur-lg bg-galaxy-background/70 shadow-md' : ''}`}>
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex-1">
           <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-galaxy-primary to-galaxy-accent mb-2">
@@ -35,8 +56,18 @@ const Header = ({ onSearch }: HeaderProps) => {
             placeholder="Search AI tools..." 
             value={searchQuery}
             onChange={handleSearchChange}
-            className="pl-10 w-full md:w-[300px] bg-galaxy-card border-galaxy-primary/20 focus:border-galaxy-primary text-galaxy-text"
+            className="pl-10 pr-10 w-full md:w-[300px] bg-galaxy-card border-galaxy-primary/20 focus:border-galaxy-primary text-galaxy-text"
           />
+          {searchQuery && (
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8" 
+              onClick={clearSearch}
+            >
+              <X size={16} className="text-galaxy-text/50" />
+            </Button>
+          )}
         </div>
       </div>
     </header>
