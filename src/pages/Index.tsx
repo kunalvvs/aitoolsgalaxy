@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import CategoryList from "@/components/CategoryList";
 import ToolsGrid from "@/components/ToolsGrid";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 import toolsData from "@/data/toolsData";
 import { toast } from "@/hooks/use-toast";
 
@@ -36,6 +37,9 @@ const Index = () => {
         <div className="absolute bottom-1/3 left-20 w-64 h-64 bg-galaxy-accent opacity-5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: "1s"}}></div>
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-galaxy-secondary opacity-5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: "2.5s"}}></div>
       </div>
+      
+      {/* Custom cursor */}
+      <CustomCursor />
       
       <div className="container mx-auto px-4 relative z-10 pb-8">
         <Header onSearch={setSearchQuery} />

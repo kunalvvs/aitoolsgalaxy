@@ -90,7 +90,7 @@
   }
 
   body {
-    @apply bg-galaxy-background text-galaxy-text;
+    @apply bg-galaxy-background text-galaxy-text cursor-none;
   }
 }
 
@@ -126,12 +126,85 @@
   to { transform: scale(1); opacity: 1; }
 }
 
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
 
 .scale-in {
   animation: scaleIn 0.3s ease forwards;
+}
+
+.float-animation {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.rotate-animation {
+  animation: rotate 8s linear infinite;
+}
+
+/* Custom cursor styles */
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(139, 92, 246, 0.9);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+.cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
+}
+
+/* Cursor hover effects */
+.hoverable {
+  cursor: none;
+}
+
+.hoverable:hover ~ .cursor-outline {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.hoverable:active ~ .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 .staggered-item {
@@ -142,6 +215,20 @@
   animation: fadeIn 0.5s ease forwards;
 }
 
+/* Card animation */
+.card-hover-effect {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-galaxy-primary/20;
+}
+
+.card-animation {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-animation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+}
+
 /* Improved text contrast */
 .text-high-contrast {
   @apply text-white font-medium;
@@ -149,8 +236,4 @@
 
 .text-medium-contrast {
   @apply text-gray-200;
-}
-
-.card-hover-effect {
-  @apply transition-all duration-300 hover:-translate-y-1;
 }
