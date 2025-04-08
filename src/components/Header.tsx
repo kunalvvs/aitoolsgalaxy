@@ -1,84 +1,47 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+import Logo from "./Logo";
 
 interface HeaderProps {
   onSearch: (query: string) => void;
 }
 
 const Header = ({ onSearch }: HeaderProps) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Animation on mount
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-    onSearch(query);
+  const [searchValue, setSearchValue] = useState("");
+  
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    onSearch(value);
   };
-
-  const clearSearch = () => {
-    setSearchQuery('');
-    onSearch('');
-  };
-
-  // Add scroll event listener for header effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  
   return (
-    <header className={`sticky top-0 z-20 py-6 mb-6 transition-all duration-300 ${isScrolled ? 'backdrop-blur-lg bg-galaxy-background/90 shadow-md' : ''}`}>
-      <div className={`flex flex-col md:flex-row items-center justify-between gap-4 opacity-0 ${isVisible ? 'animate-[fadeIn_0.6s_ease_forwards]' : ''}`}>
-        <div className="flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-galaxy-primary to-galaxy-accent mb-2">
-            AI Tools Galaxy
-          </h1>
-          <p className="text-gray-300 max-w-lg">
-            Discover the universe of AI tools organized by categories. Explore, compare, and find the perfect tools for your needs.
-          </p>
+    <header className="py-6 mb-8">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="animate-fade-in">
+          <Logo size="lg" />
         </div>
         
-        <div className="relative w-full md:w-auto">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-galaxy-primary/70" size={18} />
-          <Input 
+        <div className="w-full md:w-auto max-w-md relative animate-fade-in" style={{animationDelay: '200ms'}}>
+          <Input
             type="search"
-            placeholder="Search AI tools..." 
-            value={searchQuery}
-            onChange={handleSearchChange}
-            className="pl-10 pr-10 w-full md:w-[300px] bg-galaxy-card/80 border-galaxy-primary/30 focus:border-galaxy-primary text-white placeholder:text-gray-400"
+            placeholder="Search tools, categories, or tags..."
+            value={searchValue}
+            onChange={handleSearch}
+            className="pl-10 pr-4 py-2 bg-galaxy-card border-galaxy-primary/20 text-galaxy-text placeholder:text-galaxy-text/50 w-full md:w-80"
           />
-          {searchQuery && (
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8" 
-              onClick={clearSearch}
-            >
-              <X size={16} className="text-galaxy-text/70" />
-            </Button>
-          )}
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-galaxy-text/50 w-4 h-4" />
         </div>
+      </div>
+      <div className="mt-6 text-center">
+        <h1 className="text-3xl font-bold mb-2 text-glow bg-clip-text text-transparent bg-gradient-to-r from-galaxy-primary via-galaxy-accent to-galaxy-secondary animate-fade-in" style={{animationDelay: '400ms'}}>
+          Explore the AI Tools Galaxy
+        </h1>
+        <p className="text-medium-contrast max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '600ms'}}>
+          Discover and explore the universe of AI tools to enhance your workflow, creativity, and productivity
+        </p>
       </div>
     </header>
   );

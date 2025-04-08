@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import toolsData from "@/data/toolsData";
 import { toast } from "@/hooks/use-toast";
+import Logo from "@/components/Logo";
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -36,6 +37,14 @@ const Index = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-galaxy-primary opacity-10 rounded-full blur-3xl animate-pulse-soft"></div>
         <div className="absolute bottom-1/3 left-20 w-64 h-64 bg-galaxy-accent opacity-5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: "1s"}}></div>
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-galaxy-secondary opacity-5 rounded-full blur-3xl animate-pulse-soft" style={{animationDelay: "2.5s"}}></div>
+        
+        {/* New galaxy logo decoration */}
+        <div className="absolute top-40 left-[10%] opacity-5">
+          <Logo size="lg" showText={false} />
+        </div>
+        <div className="absolute bottom-40 right-[15%] opacity-5 rotate-45">
+          <Logo size="md" showText={false} />
+        </div>
       </div>
       
       {/* Custom cursor */}
