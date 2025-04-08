@@ -5,7 +5,7 @@ import CategoryList from "@/components/CategoryList";
 import ToolsGrid from "@/components/ToolsGrid";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import toolsData from "@/data/toolsData";
+import toolsData from "@/data/tools";
 import { toast } from "@/hooks/use-toast";
 import Logo from "@/components/Logo";
 
