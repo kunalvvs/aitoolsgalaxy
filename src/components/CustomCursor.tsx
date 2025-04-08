@@ -3,29 +3,53 @@ import { useEffect, useState } from "react";
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [targetPosition, setTargetPosition] = useState({ x: -100, y: -100 });
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [isMoving, setIsMoving] = useState(false);
-  const [lastPosition, setLastPosition] = useState({ x: -100, y: -100 });
+  const [trailPositions, setTrailPositions] = useState<Array<{x: number, y: number}>>([]);
+
+  // Smoother animation with requestAnimationFrame
+  useEffect(() => {
+    let animationFrameId: number;
+    let prevTimestamp: number;
+    
+    const animate = (timestamp: number) => {
+      if (!prevTimestamp) prevTimestamp = timestamp;
+      const deltaTime = timestamp - prevTimestamp;
+      prevTimestamp = timestamp;
+      
+      // Smooth interpolation of cursor position (easing)
+      const ease = 0.15; // Adjust for faster/slower following (higher = faster)
+      const dx = targetPosition.x - position.x;
+      const dy = targetPosition.y - position.y;
+      
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        const newX = position.x + dx * ease;
+        const newY = position.y + dy * ease;
+        setPosition({ x: newX, y: newY });
+        
+        // Add positions to trail with throttling
+        if (trailPositions.length === 0 || 
+            Math.abs(trailPositions[0].x - newX) > 10 || 
+            Math.abs(trailPositions[0].y - newY) > 10) {
+          setTrailPositions(prev => [{x: newX, y: newY}, ...prev.slice(0, 5)]);
+        }
+      }
+      
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    animationFrameId = requestAnimationFrame(animate);
+    
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [position, targetPosition, trailPositions]);
 
   useEffect(() => {
-    let moveTimeout: number;
-    
-    const updatePosition = (e: MouseEvent) => {
-      setLastPosition(position);
-      setPosition({ x: e.clientX, y: e.clientY });
-      
-      // Set moving state to true
-      setIsMoving(true);
-      
-      // Clear any existing timeouts
-      if (moveTimeout) clearTimeout(moveTimeout);
-      
-      // Set a timeout to detect when movement stops
-      moveTimeout = window.setTimeout(() => {
-        setIsMoving(false);
-      }, 100);
+    const updateTargetPosition = (e: MouseEvent) => {
+      setTargetPosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseDown = () => setClicked(true);
@@ -43,7 +67,7 @@ const CustomCursor = () => {
       });
     };
 
-    window.addEventListener("mousemove", updatePosition);
+    window.addEventListener("mousemove", updateTargetPosition);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("mouseenter", handleMouseEnter);
@@ -53,33 +77,51 @@ const CustomCursor = () => {
     setTimeout(addHoverListeners, 1000);
 
     return () => {
-      window.removeEventListener("mousemove", updatePosition);
+      window.removeEventListener("mousemove", updateTargetPosition);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("mouseenter", handleMouseEnter);
       window.removeEventListener("mouseleave", handleMouseLeave);
-      if (moveTimeout) clearTimeout(moveTimeout);
     };
-  }, [position]);
+  }, []);
 
   if (typeof window === 'undefined') return null;
 
   return (
     <>
+      {/* Main dot cursor */}
       <div
-        className={`cursor-dot ${clicked ? 'scale-50 bg-galaxy-accent' : ''} ${isMoving ? 'cursor-moving' : ''} ${hidden ? 'opacity-0' : 'opacity-100'}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        className={`cursor-dot ${clicked ? 'cursor-dot-clicked' : ''} ${hidden ? 'opacity-0' : 'opacity-100'}`}
+        style={{ 
+          left: `${position.x}px`, 
+          top: `${position.y}px`,
+          transition: "background-color 0.3s ease"
+        }}
       />
+      
+      {/* Cursor outline */}
       <div
-        className={`cursor-outline ${clicked ? 'scale-75' : ''} ${hovered ? 'scale-150 bg-galaxy-primary/10' : ''} ${isMoving ? 'cursor-outline-moving' : ''} ${hidden ? 'opacity-0' : 'opacity-100'}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+        className={`cursor-outline ${clicked ? 'cursor-outline-clicked' : ''} ${hovered ? 'cursor-outline-hovered' : ''} ${hidden ? 'opacity-0' : 'opacity-100'}`}
+        style={{ 
+          left: `${position.x}px`, 
+          top: `${position.y}px`,
+          transition: "transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease"
+        }}
       />
-      {isMoving && (
+      
+      {/* Cursor trails */}
+      {trailPositions.map((pos, index) => (
         <div
+          key={index}
           className="cursor-trail"
-          style={{ left: `${lastPosition.x}px`, top: `${lastPosition.y}px` }}
+          style={{ 
+            left: `${pos.x}px`, 
+            top: `${pos.y}px`,
+            opacity: 1 - (index * 0.2),
+            transform: `scale(${1 - (index * 0.15)})`,
+          }}
         />
-      )}
+      ))}
     </>
   );
 };
