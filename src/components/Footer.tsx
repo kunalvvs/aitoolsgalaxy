@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-import { ExternalLink, Twitter, Github, Linkedin, Youtube } from "lucide-react";
+import { ExternalLink, Linkedin, Youtube, Instagram } from "lucide-react";
 
 const Footer = () => {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
@@ -24,14 +24,27 @@ const Footer = () => {
   // Social media links from innovativedeveloper.bio.link
   const socialLinks = [
     { 
-      name: "Twitter", 
-      url: "https://twitter.com/thedeveloper001", 
-      icon: <Twitter className="w-5 h-5" />
+      name: "Instagram", 
+      url: "https://www.instagram.com/innovativedeveloper", 
+      icon: <Instagram className="w-5 h-5" />
     },
     { 
-      name: "GitHub", 
-      url: "https://github.com/innovative-developer", 
-      icon: <Github className="w-5 h-5" />
+      name: "Telegram", 
+      url: "https://t.me/innovativedeveloper", 
+      icon: <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="w-5 h-5"
+            >
+              <path d="m15 10-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+            </svg>
     },
     { 
       name: "LinkedIn", 
