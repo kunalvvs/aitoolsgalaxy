@@ -25,7 +25,7 @@ const Footer = () => {
   const socialLinks = [
     { 
       name: "Instagram", 
-      url: "https://www.instagram.com/innovativedeveloper", 
+      url: "https://www.instagram.com/innovative.developer/", 
       icon: <Instagram className="w-5 h-5" />
     },
     { 
