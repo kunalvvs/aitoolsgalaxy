@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-import { ExternalLink, Twitter, Github, Linkedin, Youtube, Discord } from "lucide-react";
+import { ExternalLink, Twitter, Github, Linkedin, Youtube } from "lucide-react";
 
 const Footer = () => {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
@@ -46,7 +46,27 @@ const Footer = () => {
     { 
       name: "Discord", 
       url: "https://discord.gg/kxvDVewZA9", 
-      icon: <Discord className="w-5 h-5" />
+      icon: <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="w-5 h-5"
+            >
+              <circle cx="9" cy="12" r="1"/>
+              <circle cx="15" cy="12" r="1"/>
+              <path d="M7.5 7.2C8.4 6.5 9.7 6 11 6h2c1.3 0 2.6.5 3.5 1.2"/>
+              <path d="M17 14a5 5 0 0 1-4.4 2.6A6 6 0 0 1 7 14"/>
+              <path d="M15.5 17c.9.7 1.5 1.7 1.5 3 0 2-2 3-4 3s-4-1-4-3c0-1.3.6-2.3 1.5-3"/>
+              <path d="M12 6c3 0 6-1 6-3 0-2-3-3-6-3S6 1 6 3c0 2 3 3 6 3"/>
+              <path d="M6 11c-3 0-4-3-4-5 0-1 0-1 1-1h18c1 0 1 0 1 1 0 2-1 5-4 5"/>
+              <path d="M6 11v3c0 4.9 2.3 5 6 5s6-.1 6-5v-3"/>
+            </svg>
     }
   ];
 
