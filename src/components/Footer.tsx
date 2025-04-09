@@ -48,7 +48,7 @@ const Footer = () => {
     },
     { 
       name: "LinkedIn", 
-      url: "https://www.linkedin.com/in/innovativedeveloper/", 
+      url: "https://www.linkedin.com/company/innovativedeveloper", 
       icon: <Linkedin className="w-5 h-5" />
     },
     { 
@@ -58,7 +58,7 @@ const Footer = () => {
     },
     { 
       name: "Discord", 
-      url: "https://discord.gg/kxvDVewZA9", 
+      url: "https://discord.gg/4pRWmz9YTN", 
       icon: <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="20" 
